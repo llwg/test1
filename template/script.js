@@ -194,6 +194,7 @@ rbut_svg.innerHTML = `<svg viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg">
 
 document.querySelectorAll(".stills_slide").forEach(element => {
 	// console.log(e)
+	const stills_wrapper = element.querySelector('.stills_wrapper')
 	const stills = element.querySelector('.stills')
 	const imgs = stills.querySelectorAll("img")
 
@@ -207,17 +208,16 @@ document.querySelectorAll(".stills_slide").forEach(element => {
 	number_spans.forEach(n => numbers.appendChild(n))
 
 	const lBut = document.createElement('button')
-	// const lBut = lbut_svg.cloneNode(true)
 	const rBut = document.createElement('button')
 	lBut.className = 'stills_lbut'
 	rBut.className = 'stills_rbut'
 	lBut.appendChild(lbut_svg.cloneNode(true))
 	rBut.appendChild(rbut_svg.cloneNode(true))
-	// lBut.innerText = '<'
-	// rBut.innerText = '>'
-	stills.appendChild(lBut)
-	stills.appendChild(rBut)
+	// stills.appendChild(lBut)
+	// stills.appendChild(rBut)
 
+	element.insertBefore(lBut, stills_wrapper)
+	element.appendChild(rBut)
 	element.appendChild(numbers)
 
 	// console.log(imgs)

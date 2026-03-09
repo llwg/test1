@@ -69,6 +69,7 @@ const shows = show_ids.map(id => project_by_id[id])
 const site_template = await Deno.readTextFile(`${MYDIR}/template/site.html`)
 
 const makeVideoDisplay = page => {
+	return ''
 	const { yt, vimeo, title_display } = page
 	if (yt && vimeo) {
 		throw `Unexpected both yt and vimeo..: ${page.id}`
@@ -103,7 +104,7 @@ const make_stills_slide = ({ stills }) => `
 <div class="stills_slide">
 	<div class="stills_wrapper">
 		<div class="stills">
-			${stills.map(href => `<img src="${href}" alt="still">`).join('')}
+			${stills.map(href => `<div class=still><img src="${href}" alt="still"></div>`).join('')}
 		</div>
 	</div>
 </div>
@@ -160,6 +161,6 @@ window.idToGroup = ${JSON.stringify(idToGroup)}
 		.replace("{{films}}", films_content).replace("{{films_sidebar}}", films_sidebar_content)
 		.replace("{{shows}}", shows_content).replace("{{shows_sidebar}}", shows_sidebar_content)
 
-site_html = site_html.replace(/\/?(media\/stills\/[^'"]+)/g, 'https://jolinnaliarchive.github.io/$1')
+// site_html = site_html.replace(/\/?(media\/stills\/[^'"]+)/g, 'https://jolinnaliarchive.github.io/$1')
 
 console.log(site_html)
