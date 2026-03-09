@@ -161,6 +161,6 @@ window.idToGroup = ${JSON.stringify(idToGroup)}
 		.replace("{{films}}", films_content).replace("{{films_sidebar}}", films_sidebar_content)
 		.replace("{{shows}}", shows_content).replace("{{shows_sidebar}}", shows_sidebar_content)
 
-// site_html = site_html.replace(/\/?(media\/stills\/[^'"]+)/g, 'https://jolinnaliarchive.github.io/$1')
+site_html = site_html.replace(/\/?(media\/stills\/[^'"]+)/g, 'https://jolinnaliarchive.github.io/$1')
 
 console.log(site_html)
